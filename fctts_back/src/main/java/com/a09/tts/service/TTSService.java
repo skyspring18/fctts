@@ -1,5 +1,6 @@
 package com.a09.tts.service;
 
+import com.a09.tts.util.JsonToEntity;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -31,6 +32,9 @@ public class TTSService {
      */
 
     public String speak(String text) {
+        //创建JsonToEntity示例，方便后续对json字符串的相关操作
+        JsonToEntity jsonToEntity = new JsonToEntity();
+
         // 创建 RestTemplate 实例
         RestTemplate restTemplate = new RestTemplate();
 
@@ -41,7 +45,7 @@ public class TTSService {
         Map<String, Object> requestBody = new HashMap<>();
         requestBody.put("text", text);
         requestBody.put("voice", "9999");//音色，可变
-        requestBody.put("prompt", "[break_6]");
+        requestBody.put("prompt", "");
         requestBody.put("temperature", 0.3);
         requestBody.put("top_p", 0.7);
         requestBody.put("top_k", 20);
@@ -69,7 +73,10 @@ public class TTSService {
 
             // 打印响应结果
             System.out.println(response.getBody());
-            return response.getBody().toString();
+
+            //从相应结果中取出生成的语音url，并返回给前端
+            String s = jsonToEntity.oneAttribute("url", response.getBody());
+            return s;
         } catch (URISyntaxException e) {
             // 更详细的异常处理，例如日志记录
             System.err.println("Invalid URI: " + e.getMessage());

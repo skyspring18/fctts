@@ -19,7 +19,7 @@ public class TTSController {
      * 处理tts的控制器方法
      *
      * @param requestData
-     * @return
+     * @return 返回的是生成的语音url，前端进入网址即可收听语音
      */
 
     @PostMapping("/synthesize")
@@ -27,4 +27,16 @@ public class TTSController {
         String text = (String) requestData.get("text");
         return ttsService.speak(text);
     }
+
+    /**
+     * 使tts能够选择预设音色的控制器方法
+     *
+     * @param requestData
+     * @return
+     */
+
+//    @PostMapping("/select")
+//    public String select(@RequestBody Map<String, Object> requestData) {
+//
+//    }
 }
