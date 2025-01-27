@@ -18,7 +18,11 @@ public class TTSController {
     /**
      * 处理tts的控制器方法
      *
+<<<<<<< HEAD
      * @param requestData 参数是包含文本和声音样本选择的json字符串
+=======
+     * @param requestData
+>>>>>>> d7acfc40e98279259de229705137c2bbcf0dc2b0
      * @return 返回的是生成的语音url，前端进入网址即可收听语音
      */
 
@@ -29,4 +33,18 @@ public class TTSController {
         return ttsService.speak(text,voice);
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * 使tts能够选择预设音色的控制器方法
+     *
+     * @param requestData
+     * @return
+     */
+
+//    @PostMapping("/select")
+//    public String select(@RequestBody Map<String, Object> requestData) {
+//
+//    }
+>>>>>>> d7acfc40e98279259de229705137c2bbcf0dc2b0
 }

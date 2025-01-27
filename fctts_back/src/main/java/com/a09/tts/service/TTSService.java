@@ -31,7 +31,11 @@ public class TTSService {
      * @param text
      */
 
+<<<<<<< HEAD
     public String speak(String text,String voice) {
+=======
+    public String speak(String text) {
+>>>>>>> d7acfc40e98279259de229705137c2bbcf0dc2b0
         //创建JsonToEntity示例，方便后续对json字符串的相关操作
         JsonToEntity jsonToEntity = new JsonToEntity();
 
@@ -43,8 +47,13 @@ public class TTSService {
 
         // 定义请求参数
         Map<String, Object> requestBody = new HashMap<>();
+<<<<<<< HEAD
         requestBody.put("text", text);//文本
         requestBody.put("voice", voice);//音色，可变，2222/7777/8888/9999...
+=======
+        requestBody.put("text", text);
+        requestBody.put("voice", "9999");//音色，可变
+>>>>>>> d7acfc40e98279259de229705137c2bbcf0dc2b0
         requestBody.put("prompt", "");
         requestBody.put("temperature", 0.3);
         requestBody.put("top_p", 0.7);
